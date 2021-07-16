@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  gochain:
+    image: goloop/gochain-icon:0.9.7
+    volumes:
+      - ${PWD}/testsuite:/testsuite/
+    ports:
+      - "9080:9080"
+    environment: 
+        - GOCHAIN_CONFIG=/testsuite/config/icon.json
+        - GOCHAIN_DATA=/testsuite/data/iconee
+        - GOCHAIN_LOGFILE=/testsuite/data/iconee.log
+        - GOCHAIN_CLEAN_DATA=false
+        - JAVAEE_BIN=/goloop/execman/bin/execman
+        - PYEE_VERIFY_PACKAGE=true
